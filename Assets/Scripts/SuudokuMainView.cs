@@ -114,6 +114,7 @@ public class SuudokuMainView : MonoBehaviour
         {
             _numberTextsRoot[SelectedNumberY].NumberTexts[SelectedNumberX].color = new Color(255, 0, 0, 255);
             _wrongCount++;
+            Debug.Log($"{_answer2dArray[SelectedNumberX][SelectedNumberY]},{text}");
             // Debug.Log($"wrong count:{_wrongCount}");
             ShowWrongAnswer().Forget();
         }

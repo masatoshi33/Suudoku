@@ -37,7 +37,7 @@ public static class LoadFile
             for (int j = 0; j < columnLength; j++)
             {
                 textWords[i][j] = tempWords[j]; //2次配列textWordsにカンマごとに分けたtempWordsを代入していく
-                // Debug.Log(textWords[i][j]);
+                Debug.Log(textWords[i][j]);
             }
         }
         return textWords;

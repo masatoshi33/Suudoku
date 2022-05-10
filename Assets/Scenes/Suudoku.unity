@@ -1679,20 +1679,20 @@ MonoBehaviour:
   _wrong: {fileID: 1593685697}
   _timer: {fileID: 2021237962}
   _outputFileName:
-  - sample1
-  - sample2
-  - 20220313_5
+  - 20220510_Answer_problem6_1
+  - 20220510_Answer_problem7_2
+  - 20220510_Answer_problem8_3
   SelectedNumberX: 0
   SelectedNumberY: 0
   _problemIndexes: 000000000100000002000000
   ProblemPaths:
-  - problem3
-  - problem4
-  - problem5
+  - problem6
+  - problem7
+  - problem8
   AnswerPaths:
-  - answer3
-  - answer4
-  - answer5
+  - answer6
+  - answer7
+  - answer8
 --- !u!1 &84093969
 GameObject:
   m_ObjectHideFlags: 0
