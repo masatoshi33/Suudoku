@@ -42,7 +42,9 @@ public class SuudokuMainView : MonoBehaviour
         _selectedCursor.gameObject.SetActive(false);
         _problemIndex = 0;
         var index = _problemIndexes[_problemIndex];
+        Debug.Log($"Answer Path:{AnswerPaths[index]}");
         LoadAnswer(LoadFile.Load(AnswerPaths[index]));
+        Debug.Log($"Problem Path:{ProblemPaths[index]}");
         LoadProblem(LoadFile.Load(ProblemPaths[index]));
         _outputTable = CSVOutput.SetUpDataTable(OutputTableLabels);
         StartCountAsync().Forget();

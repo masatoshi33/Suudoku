@@ -1686,13 +1686,13 @@ MonoBehaviour:
   SelectedNumberY: 0
   _problemIndexes: 000000000100000002000000
   ProblemPaths:
+  - problem7-2
   - problem6
-  - problem7
   - problem8
   AnswerPaths:
-  - answer6
-  - answer7
-  - answer8
+  - answer7-2
+  - answer6-2
+  - answer8-2
 --- !u!1 &84093969
 GameObject:
   m_ObjectHideFlags: 0
