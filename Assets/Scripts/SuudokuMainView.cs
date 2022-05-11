@@ -67,16 +67,21 @@ public class SuudokuMainView : MonoBehaviour
                 // 文字色を黒に戻す
                 _numberTextsRoot[y].NumberTexts[x].color = new Color(0, 0, 0, 255);
                 // Debug.Log(numbers[y][x]);
-                if (numbers[y][x] == "0")
+                // NOTE:改行コードがCRLFの時に空白が含まれてしまう問題への対応
+                if (numbers[y][x][0] == '0')
                 {
                     _isLock2dArray[y][x] = false;
                     _numberTextsRoot[y].NumberTexts[x].text = "";
-                    continue;
                 }
-                // 正解チェック
-                if (_answer2dArray[y][x] != numbers[y][x]) throw new System.Exception("問題と解答が一致していません。");
-                _numberTextsRoot[y].NumberTexts[x].text = numbers[y][x];
-                _isLock2dArray[y][x] = true;
+                else
+                {
+                    // Debug.Log($"problem is not 0 : {numbers[y][x]}");
+                    // 正解チェック
+                    if (_answer2dArray[y][x] != numbers[y][x]) throw new System.Exception($"位置({x},{y})の解答({_answer2dArray[y][x]})と問題({numbers[y][x]})が一致していません。");
+                    // Debug.Log($"位置({x},{y})の解答({_answer2dArray[y][x]})と問題({numbers[y][x]})が一致している");
+                    _numberTextsRoot[y].NumberTexts[x].text = numbers[y][x];
+                    _isLock2dArray[y][x] = true;
+                }   
             }
         }
     }
