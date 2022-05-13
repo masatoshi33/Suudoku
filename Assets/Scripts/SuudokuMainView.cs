@@ -17,6 +17,7 @@ public class SuudokuMainView : MonoBehaviour
     [SerializeField] private TMP_Text _wrongCountText;
     [SerializeField] private GameObject _wrong;
     [SerializeField] private Timer _timer;
+    public string BasePath = "Suudoku/";
     private bool[][] _isLock2dArray = new bool[9][];
     private string[][] _answer2dArray = new string[9][];
     private int _wrongCount = 0;
@@ -43,9 +44,9 @@ public class SuudokuMainView : MonoBehaviour
         _problemIndex = 0;
         var index = _problemIndexes[_problemIndex];
         Debug.Log($"Answer Path:{AnswerPaths[index]}");
-        LoadAnswer(LoadFile.Load(AnswerPaths[index]));
+        LoadAnswer(LoadFile.Load($"{BasePath}{AnswerPaths[index]}"));
         Debug.Log($"Problem Path:{ProblemPaths[index]}");
-        LoadProblem(LoadFile.Load(ProblemPaths[index]));
+        LoadProblem(LoadFile.Load($"{BasePath}{ProblemPaths[index]}"));
         _outputTable = CSVOutput.SetUpDataTable(OutputTableLabels);
         StartCountAsync().Forget();
     }

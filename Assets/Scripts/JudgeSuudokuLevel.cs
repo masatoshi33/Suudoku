@@ -13,6 +13,7 @@ public class JudgeSuudokuLevel : MonoBehaviour
     [SerializeField] private string[] _problemPaths;
     [SerializeField] private string _outputFileName;
     private int[][] _suudokuProblem = new int[9][];
+    public string BasePath = "Suudoku/";
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class JudgeSuudokuLevel : MonoBehaviour
         var output = new List<double>();
         foreach (var path in _problemPaths)
         {
-            var problemNumbersText = LoadFile.Load(path);
+            var problemNumbersText = LoadFile.Load($"{BasePath}{path}");
             var problemNumbers = new int[9][];
             for (var i = 0; i < problemNumbersText.Length; i++)
             {
