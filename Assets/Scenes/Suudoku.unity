@@ -1678,6 +1678,7 @@ MonoBehaviour:
   _wrongCountText: {fileID: 900731372}
   _wrong: {fileID: 1593685697}
   _timer: {fileID: 2021237962}
+  BasePath: Suudoku/
   _outputFileName:
   - 20220510_Answer_problem6_1
   - 20220510_Answer_problem7_2
@@ -1686,12 +1687,12 @@ MonoBehaviour:
   SelectedNumberY: 0
   _problemIndexes: 000000000100000002000000
   ProblemPaths:
+  - problem6-4
   - problem7-2
-  - problem6
   - problem8
   AnswerPaths:
+  - answer6
   - answer7-2
-  - answer6-2
   - answer8-2
 --- !u!1 &84093969
 GameObject:
@@ -28720,7 +28721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1803780168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28738,12 +28739,19 @@ MonoBehaviour:
   - problem3
   - problem4
   - problem5
-  - problem6
-  - problem7
-  - problem8
-  - problem9
-  - problem101
+  - problem9-1
+  - problem101-1
+  - problem6-1
+  - problem6-2
+  - problem6-3
+  - problem7-1
+  - problem7-2
+  - problem7-3
+  - problem8-1
+  - problem8-2
+  - problem8-3
   _outputFileName: SuudokuEntropyList
+  BasePath: Suudoku/
 --- !u!4 &1803780169
 Transform:
   m_ObjectHideFlags: 0
@@ -33826,7 +33834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2560573445695114471, guid: 3a7fb945fa12f4a90bbb1fe6ede73b8e, type: 3}
       propertyPath: StartMinute
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2560573445695114471, guid: 3a7fb945fa12f4a90bbb1fe6ede73b8e, type: 3}
       propertyPath: StartSeconds
