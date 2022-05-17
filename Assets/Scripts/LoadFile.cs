@@ -37,7 +37,7 @@ public static class LoadFile
             for (int j = 0; j < columnLength; j++)
             {
                 textWords[i][j] = tempWords[j]; //2次配列textWordsにカンマごとに分けたtempWordsを代入していく
-                Debug.Log(textWords[i][j]);
+                // Debug.Log(textWords[i][j]);
             }
         }
         return textWords;
@@ -57,7 +57,7 @@ public static class LoadFile
         var text = textasset.text; //テキスト全体をstring型で入れる変数を用意して入れる
 
         // テキストを区切り位置で分けた配列を取得
-        Debug.Log(text);
+        // Debug.Log(text);
         var textWords = text.Split(splitMarker);
         // Debug.Log($"input text:{textWords}");
         return textWords;
