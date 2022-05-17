@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using System.Linq;
 using UniRx;
 using UnityEngine;
 using TMPro;
@@ -17,6 +18,7 @@ public class SuudokuMainView : MonoBehaviour
     [SerializeField] private TMP_Text _wrongCountText;
     [SerializeField] private GameObject _wrong;
     [SerializeField] private Timer _timer;
+    [SerializeField] private List<GameObject> _fixObjects;
     public string BasePath = "Suudoku/";
     private bool[][] _isLock2dArray = new bool[9][];
     private string[][] _answer2dArray = new string[9][];
@@ -55,6 +57,9 @@ public class SuudokuMainView : MonoBehaviour
     private async UniTask StartCountAsync()
     {
         await UniTask.WaitUntil(() => !_titleView.activeSelf);
+        // アクティブ化しているのに、表示されないバグ対応
+        _fixObjects.ForEach(obj => obj.SetActive(false));
+        _fixObjects.ForEach(obj => obj.SetActive(true));
         _timer.StartCount();
         _selectedCursor.gameObject.SetActive(true);
     }

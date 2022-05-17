@@ -1678,6 +1678,9 @@ MonoBehaviour:
   _wrongCountText: {fileID: 900731372}
   _wrong: {fileID: 1593685697}
   _timer: {fileID: 2021237962}
+  _fixObjects:
+  - {fileID: 263937300}
+  - {fileID: 875875382}
   BasePath: Suudoku/
   _outputFileName:
   - 20220510_Answer_problem6_1
