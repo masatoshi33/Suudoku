@@ -11,7 +11,7 @@ using System.Data;
 public class SuudokuMainView : MonoBehaviour
 {
     private static readonly string[] OutputTableLabels = { "date", "time", "x", "y", "number", "isCorrect" };
-    [SerializeField] private GameObject _titleView;
+    [SerializeField] private TitleView _titleView;
     [SerializeField] private TMPTextList[] _numberTextsRoot;
     [SerializeField] private RectTransform _selectedCursor;
     [SerializeField] private TMP_Text _correctCountText;
@@ -56,7 +56,7 @@ public class SuudokuMainView : MonoBehaviour
     ///<summary>タイトルが非アクティブになるまでタイムカウントを待つ</sammary>
     private async UniTask StartCountAsync()
     {
-        await UniTask.WaitUntil(() => !_titleView.activeSelf);
+        await UniTask.WaitUntil(() => !_titleView.gameObject.activeSelf);
         // アクティブ化しているのに、表示されないバグ対応
         _fixObjects.ForEach(obj => obj.SetActive(false));
         _fixObjects.ForEach(obj => obj.SetActive(true));
@@ -151,14 +151,16 @@ public class SuudokuMainView : MonoBehaviour
         if (_timer.IsTimeUp() && !_timer.IsStopCount())
         {
             _timer.StopCount();
+            CSVOutput.SaveDataTable(_outputTable, _outputFileName[_problemIndex]);
+            _problemIndex++;
             // 完全終了
             if (_problemIndexes.Length <= _problemIndex)
             {
                 Debug.Log("Finish!!");
+                _titleView.gameObject.SetActive(true);
+                _titleView.Finish();
                 return;
             }
-            CSVOutput.SaveDataTable(_outputTable, _outputFileName[_problemIndex]);
-            _problemIndex++;
             // var index = _problemIndexes[_problemIndex];
             RestartGame(_problemIndex).Forget();
         }
