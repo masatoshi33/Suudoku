@@ -190,5 +190,10 @@ public class SuudokuMainView : MonoBehaviour
 
     public void UpdateXIndex(int x) => SelectedNumberX = x;
     public void UpdateYIndex(int y) => SelectedNumberY = y;
+
+    private void OnDestroy()
+    {
+        CSVOutput.SaveDataTable(_outputTable, _outputFileName[_problemIndex]);
+    }
 }
 
