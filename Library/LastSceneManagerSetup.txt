@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/CalculationTask.unity
+- path: Assets/Scenes/Suudoku.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
