@@ -1683,20 +1683,25 @@ MonoBehaviour:
   - {fileID: 875875382}
   BasePath: Suudoku/
   _outputFileName:
-  - 20220524_answer_problem7_1_Inobe
-  - 20220524_answer_problem8_2_Inobe
-  - 20220524_answer_problem9_3_Inobe
+  - 20220622_answer_9_1_Yonezawa
+  - 20220622_answer_sample
+  - 20220622_answer_sample
+  - 20220622_answer_sample
+  - 20220622_answer_7_3_Yonezawa
+  - 20220622_answer_8_2_Yonezawa
   SelectedNumberX: 0
   SelectedNumberY: 0
   _problemIndexes: 00000000
   ProblemPaths:
-  - problem7-1
-  - problem8-1
   - problem9-1
+  - problem8-1
+  - problem7-1
+  - problem1
   AnswerPaths:
-  - answer7
-  - answer8
   - answer9
+  - answer8
+  - answer7
+  - answer
 --- !u!1 &84093969
 GameObject:
   m_ObjectHideFlags: 0
@@ -28724,7 +28729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1803780168
 MonoBehaviour:
   m_ObjectHideFlags: 0
