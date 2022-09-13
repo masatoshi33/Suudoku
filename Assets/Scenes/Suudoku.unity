@@ -1693,14 +1693,14 @@ MonoBehaviour:
   SelectedNumberY: 0
   _problemIndexes: 00000000
   ProblemPaths:
-  - problem9-1
-  - problem8-1
-  - problem7-1
+  - problem15-1
+  - problem14-1
+  - problem13-1
   - problem1
   AnswerPaths:
-  - answer9
-  - answer8
-  - answer7
+  - answer15
+  - answer14
+  - answer13
   - answer
 --- !u!1 &84093969
 GameObject:
