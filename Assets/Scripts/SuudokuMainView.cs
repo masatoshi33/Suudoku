@@ -24,6 +24,7 @@ public class SuudokuMainView : MonoBehaviour
     private string[][] _answer2dArray = new string[9][];
     private int _wrongCount = 0;
     private int _correctCount = 0;
+    private int _filledCount = 0;
     private DataTable _outputTable;
     [SerializeField] private string[] _outputFileName;
 
@@ -89,6 +90,7 @@ public class SuudokuMainView : MonoBehaviour
                     // Debug.Log($"位置({x},{y})の解答({_answer2dArray[y][x]})と問題({numbers[y][x]})が一致している");
                     _numberTextsRoot[y].NumberTexts[x].text = numbers[y][x];
                     _isLock2dArray[y][x] = true;
+                    _filledCount++;
                 }   
             }
         }
@@ -117,6 +119,7 @@ public class SuudokuMainView : MonoBehaviour
             // Debug.Log($"correct count:{_correctCount}");
             // 正解したら変えられなくする
             _isLock2dArray[SelectedNumberY][SelectedNumberX] = true;
+            _filledCount++;
         }
         else
         {
@@ -147,27 +150,30 @@ public class SuudokuMainView : MonoBehaviour
         // 正解数、不正解数表示更新
         _correctCountText.text = _correctCount.ToString();
         _wrongCountText.text = _wrongCount.ToString();
+        // 全問正解した場合
+        if (_filledCount >= 81)
+        {
+            _filledCount = 0;
+            CSVOutput.SaveDataTable(_outputTable, _outputFileName[_problemIndex]);
+            _problemIndex++;
+            Debug.Log($"次の問題番号：{_problemIndex}");
+            RestartGameAsync(_problemIndex).Forget();
+        }
         // 時間切れの際
         if (_timer.IsTimeUp() && !_timer.IsStopCount())
         {
             _timer.StopCount();
             CSVOutput.SaveDataTable(_outputTable, _outputFileName[_problemIndex]);
-            _problemIndex++;
             // 完全終了
-            if (_problemIndexes.Length <= _problemIndex)
-            {
-                Debug.Log("Finish!!");
-                _titleView.gameObject.SetActive(true);
-                _titleView.Finish();
-                return;
-            }
-            // var index = _problemIndexes[_problemIndex];
-            RestartGame(_problemIndex).Forget();
+            Debug.Log("Finish!!");
+            _titleView.gameObject.SetActive(true);
+            _titleView.Finish();
+            return;
         }
     }
 
-    ///<summary>ゲームをリセットしスタート</sammary>
-    private async UniTask RestartGame(int index)
+    ///<summary>問題をindexに応じて変える</sammary>
+    private async UniTask RestartGameAsync(int index)
     {
         _outputTable = CSVOutput.SetUpDataTable(OutputTableLabels);
         await UniTask.Delay(0);
@@ -175,10 +181,10 @@ public class SuudokuMainView : MonoBehaviour
         _wrongCount = 0;
         _correctCountText.text = "0";
         _wrongCountText.text = "0";
-        LoadAnswer(LoadFile.Load(AnswerPaths[index]));
-        LoadProblem(LoadFile.Load(ProblemPaths[index]));
-        _timer.SetTime(10, 0);
-        _timer.StartCount();
+        LoadAnswer(LoadFile.Load($"{BasePath}{AnswerPaths[index]}"));
+        LoadProblem(LoadFile.Load($"{BasePath}{ProblemPaths[index]}"));
+        // _timer.SetTime(10, 0);
+        // _timer.StartCount();
     }
 
     public async UniTask ShowWrongAnswer()
