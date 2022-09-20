@@ -28730,7 +28730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1803780168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28762,6 +28762,11 @@ MonoBehaviour:
   - problem10-1
   - problem11-1
   - problem12-1
+  - problem13-1
+  - problem14-1
+  - problem15-1
+  - problem16-1
+  - problem17-1
   _outputFileName: SuudokuEntropyList
   BasePath: Suudoku/
 --- !u!4 &1803780169
